@@ -1,0 +1,93 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.231.4/containers/ruby-rails-postgres
+// Update the VARIANT arg in docker-compose.yml to pick a Ruby version
+{
+	"name": "Ruby on Rails & Postgres",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"sqltools.connections": [
+			{
+				"name": "Rails Development Database",
+				"driver": "PostgreSQL",
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 5432,
+
+				// update this to match config/database.yml
+				"database": "app_development",
+				"username": "vscode"
+			},
+			{
+				"name": "Rails Test Database",
+				"driver": "PostgreSQL",
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 5432,
+
+				// update this to match config/database.yml
+				"database": "app_test",
+				"username": "vscode"
+			}
+		],
+		"editor.formatOnSave": true,
+		"editor.formatOnSaveTimeout": 5000,
+		"ruby.lint": {
+			"rubocop": {
+				"useBundler": true,
+				"forceExclusion": true,
+				"command": "bundle exec rubocop --force-exclusion"
+			},
+		},		
+		"ruby.useBundler": false,
+		"ruby.useLanguageServer": true,
+		"ruby.rubocop.onSave": true,
+		"ruby.rubocop.useBundler": true,		
+		"solargraph.useBundler": false,
+		"solargraph.completion": true,
+		"solargraph.hover": true,
+		"solargraph.autoformat": true,
+		"solargraph.formatting": true,
+		"solargraph.definitions": true,
+		"solargraph.references": true,
+		"solargraph.logLevel": "debug",		
+		"rubyTestExplorer.testFramework":"rspec",
+		"rubyTestExplorer.logpanel": true,
+		"rubyTestExplorer.rspecDirectory": "./spec/",
+		"rubyTestExplorer.filePattern": [
+			"*_spec.rb"
+		],		
+		"files.associations": {
+			"*.html.erb": "html"
+		}
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"rebornix.Ruby",
+		"mtxr.sqltools",
+		"mtxr.sqltools-driver-pg",
+		"castwide.solargraph",
+		"kaiwood.endwise",
+		"misogi.ruby-rubocop",
+		"groksrc.ruby",
+		"hoovercj.ruby-linter",
+		"miguel-savignano.ruby-symbols",
+		"wingrunr21.vscode-ruby",
+		"ms-vscode.test-adapter-converter",
+		"connorshea.vscode-ruby-test-adapter",
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// This can be used to network with other containers or the host.
+	// "forwardPorts": [3000, 5432],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "./bin/setup",
+
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+}
