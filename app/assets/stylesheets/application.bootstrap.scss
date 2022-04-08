@@ -1,2 +1,27 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+.breadcrumb {
+    .breadcrumb-item {
+        &.active {
+            a {
+                color: $dark;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: $secondary;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+.dropdown {
+    .dropdown-item {
+        a {
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+<div>
+    <div class="container">
+        <div class="py-4">
+            <h2>Login</h2>
+            <%= form_with url: admin_login_path do |f| %>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="email" />
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" aria-describedby="password" />
+                </div>
+                <% if flash[:login_error] %>
+                <div class="mb-3">
+                    <span class="text-error">
+                        <%= flash[:login_error] %>
+                    </span>                    
+                </div>
+                <% end %>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>                
+                <div class="mb-3">
+                    <%= link_to "Forgot Password", "/" %>
+                </div>
+            <% end %>
+        </div>            
+    </div>    
+</div>

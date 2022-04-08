@@ -11,6 +11,29 @@
   </head>
 
   <body>
+    <header class="p-3 bg-dark text-white">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-between">
+          <a href="/">Punch Clock</a>
+          <div>
+            <% unless current_user&.present? %>
+              <a class="btn btn-primary" href="/admin">Login</a>
+            <% else %>
+              <div class="dropdown">
+                  <button class="btn btn-dark dropdown-toggle" id="userMenuButton" data-bs-toggle="dropdown">
+                    <%= "Hey, #{current_user.given_name}" %>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-item"><%= link_to "Users", admin_users_path %></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li class="dropdown-item"><%= link_to "Logout", admin_logout_path, method: :delete %></li>
+                  </ul>
+              </div>
+            <% end %>
+          </div>          
+        </div>        
+      </div>
+    </header>    
     <%= yield %>
   </body>
 </html>

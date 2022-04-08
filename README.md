@@ -13,9 +13,9 @@ To get the application up and running the initial version is build around Rails.
 
 Initially implemented as a simple Ruby/Rails application.
 
-### User(s)
+### Admin(s)
 
-Users/Adminsitrators have the ability to:
+Adminsitrators have the ability to:
 
 - Login
 - View daily clock entries
@@ -27,11 +27,11 @@ Users/Adminsitrators have the ability to:
 - [ ] Provide extended administrator features (TBD)
 - [ ] Provide reporting
 
-### Employee(s)
+### User(s)
 
 Employees (which may be users) are required to punch in/out through the day.  Basic functionality for punching would be to require:
 
-- Enter their Employee Id
+- Enter their User Id
 - Enter their Pin Code 
 - Select In/Out 
 
