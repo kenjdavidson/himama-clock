@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   has_many :user_roles, dependent: :delete_all
   has_many :roles, through: :user_roles
+  has_many :time_events, dependent: :delete_all
 
   validates :given_name, presence: true
   validates :surname, presence: true

@@ -4,5 +4,5 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import CurrentTimeController from "./current_time_controller"
+application.register("current-time", CurrentTimeController)

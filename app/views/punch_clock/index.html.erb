@@ -1,2 +1,32 @@
-<h1>PunchClock#index</h1>
-<p>Find me in app/views/punch_clock/index.html.erb</p>
+<div class="h-100 w-100 d-flex justify-content-center align-items-center">
+    <div>
+        <div class="d-flex flex-column justify-content-center align-items-center py-1" 
+             data-controller="current-time">
+            <span class="fs-1 text-primary fw-bold" data-current-time-target="time"></span>
+            <span class="fs-5 text-uppercase text-secondary" data-current-time-target="date"></span>
+        </div>
+        <%= form_with url: root_path do |f| %>
+            <div class="form-floating">
+                <input type="email" class="form-control" id="emailInput" name="email" required />
+                <label for="emailInput">Email</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="pincodeInput" name="pincode" required />
+                <label for="pincodeInput">Pincode</label>
+            </div>
+            <div class="d-flex my-2">
+                <div class="flex-grow-1 me-1">
+                    <input type="radio" class="btn-check" name="event_type" id="clockIn" value="clock_in" required>
+                    <label class="w-100 btn btn-secondary" for="clockIn">IN</label>                
+                </div>
+                <div class="flex-grow-1 ms-1">
+                    <input type="radio" class="btn-check" name="event_type" id="clockOut" value="clock_out">
+                    <label class="w-100 btn btn-secondary" for="clockOut">OUT</label>                
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="w-100 btn btn-primary">Submit</button>
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -12,11 +12,38 @@
 # and are populated with the current DateTime.
 #
 class PunchClockController < ApplicationController
-  layout :punch_clock
+  layout 'punch_clock'
 
   def index; end
 
   # Creates new TimeEvent by first setting the current time
   #
-  def create; end
+  def create
+    submit_time_event
+    redirect_to root_path
+  end
+
+  private
+
+  def submit_time_event
+    user = User.find_by(email: params[:email])
+    throw StandardError.new unless user.authenticate_pincode(params[:pincode])
+
+    user.time_events.create!(event_time: Time.now,
+                             event_type: params[:event_type])
+    flash[:success] = "#{user.full_name} #{event_description}"
+  rescue ActiveRecord::RecordNotFound
+    flash[:danger] = 'Unable to find user'
+  rescue StandardError
+    flash[:danger] = 'Unable to authenticate user pincode'
+  end
+
+  def event_description
+    case params[:event_type]
+    when 'clock_in'
+      'clocked in!'
+    when 'clock_out'
+      'clocked out!'
+    end
+  end
 end
