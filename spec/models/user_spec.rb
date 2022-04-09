@@ -123,6 +123,18 @@ RSpec.describe User, type: :model do
     it { should respond_to?(:roles) }
   end
 
+  describe '#has_role?' do
+    before { @user.roles << Role.new(name: 'ADMIN') }
+
+    it 'has ADMIN role' do
+      expect(@user.has_role?(:admin)).to be(true)
+    end
+
+    it 'does not have TEACHER role' do
+      expect(@user.has_role?(:teacher)).to be(false)
+    end
+  end
+
   describe '#full_name' do
     it { should respond_to?(:full_name) }
   end

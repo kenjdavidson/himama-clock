@@ -6,10 +6,13 @@ class Admin::UsersController < ApplicationController
   include AuthenticatedConcern
 
   before_action :user, only: %i[edit update destroy]
+  before_action :authenticate_session
 
   def index
     @users = User.all
   end
+
+  def show; end
 
   def create; end
 
@@ -34,5 +37,9 @@ class Admin::UsersController < ApplicationController
 
   def user
     @user ||= User.find(params[:id])
+  end
+
+  def authenticate_session
+    redirect_to profile_path unless Session.user.has_role?(:admin)
   end
 end

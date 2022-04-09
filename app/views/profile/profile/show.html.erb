@@ -1,0 +1,38 @@
+<div class="profile">
+    <div class="container">
+        <nav class="p-2" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><%= link_to 'Profile', profile_path %></li>
+            </ol>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="d-flex align-items-center">
+            <img class="img-thumbnail" src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" />
+            <p class="display-3"><%= current_user.full_name %></p>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Event Time</th>
+                    <th>Event Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @time_events.each do |event| %>
+                <tr>
+                    <td><%= event.event_time.localtime %></td>
+                    <td><%= event.event_type == 0 ? 'Clocked In' : 'Clocked Out' %></td>
+                    <td>
+                        <button class="btn btn-primary">Edit</button>
+                        <button class="btn btn-secondary">Delete</button>
+                    </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

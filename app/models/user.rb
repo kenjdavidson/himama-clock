@@ -15,4 +15,8 @@ class User < ApplicationRecord
   def full_name
     "#{given_name} #{surname}"
   end
+
+  def has_role?(requested_role)
+    roles.one? { |r| r.name.downcase.to_sym.eql?(requested_role) }
+  end
 end

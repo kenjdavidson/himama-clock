@@ -3,7 +3,7 @@
 # Login/Logout use the Session which is then available within the ActiveSessionConcern
 # for other controllers.
 #
-class Admin::SessionsController < ApplicationController
+class SessionsController < ApplicationController
   def login
     @login_request = LoginRequest.new
   end
@@ -16,7 +16,7 @@ class Admin::SessionsController < ApplicationController
       redirect_to admin_users_path
     else
       flash[:login_error] = 'Invalid email and/or password'
-      redirect_to admin_login_path
+      redirect_to login_path
     end
   end
 
@@ -29,6 +29,6 @@ class Admin::SessionsController < ApplicationController
   def logout
     session.delete(:user_id)
     session.delete(:email)
-    redirect_to admin_login_path
+    redirect_to login_path
   end
 end
