@@ -143,3 +143,4 @@ Development environment:
 
 - Visual Studio Code (although any would do)
 - Devcontainers (Ruby/Rails & Posgres images)
+
