@@ -14,7 +14,11 @@
 class PunchClockController < ApplicationController
   layout 'punch_clock'
 
-  def index; end
+  def index
+    # Kill any current session to ensure people are logged out
+    session.delete(:user_id)
+    session.delete(:email)
+  end
 
   # Creates new TimeEvent by first setting the current time
   #
