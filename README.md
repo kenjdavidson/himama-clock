@@ -64,9 +64,11 @@ it would need to be extended with the appropriate association.
 
 With an extra day I'd spend time cleaning up the look and feel of the form:
 
+- [ ] Clean up the punch clock form to stop/disallow saving password info
 - [ ] Fix the issue with `DELETE /path` not working
 - [ ] Cleanup look and feel
 - [ ] Clean up error handling
+- [ ] Wrap info/error messages in a Stimulus controller for auto hiding notifications
 
 ### Extra Month
 
@@ -120,13 +122,15 @@ although this doesn't seem to work with the `has_secure_password` functionality,
 The administration panel is lacking, due to the time constraint in the document, I didn't want to go (much more over this than I had already).  
 
 - [ ] Get used to Ruby `DateTime` and ensure that the times are being formatted for the timezone of the user
-- [ ] Get the editing of Time Events working
+- [ ] Implement the editing of time events by users and administrators
 - [ ] Get the authorization working so that TEACHERS can only access their own profiles while ADMINS can access the full functionality
 - [ ] Add date filters to the Profile event display
 
+> With regards to editing, I would implement this by allowing users to **request** time event changes, which would then notify the administrators so that they may follow up on the request.  Being able to directly modify your own clock ins/outs would go against the point of clocking in and out.
+
 ### Extra Month
 
-- [ ] Clean up the Profile and Admin screens
+- [ ] Clean up the Profile and Admin screens, provide a better layout allowing for more options
 - [ ] Extend login functionality from basic password to OAuth to allow for different clients
 - [ ] Provide extended administrator features (TBD)
 - [ ] Provide reporting
