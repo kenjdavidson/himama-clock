@@ -27,15 +27,16 @@ class PunchClockController < ApplicationController
 
   def submit_time_event
     user = User.find_by(email: params[:email])
-    throw StandardError.new unless user.authenticate_pincode(params[:pincode])
 
-    user.time_events.create!(event_time: Time.now,
-                             event_type: params[:event_type])
-    flash[:success] = "#{user.full_name} #{event_description}"
+    if user.authenticate_pincode(params[:pincode])
+      user.time_events.create!(event_time: Time.now,
+                               event_type: params[:event_type])
+      flash[:success] = "#{user.full_name} #{event_description}"
+    else
+      flash[:danger] = 'Unable to authenticate user pincode'
+    end
   rescue ActiveRecord::RecordNotFound
     flash[:danger] = 'Unable to find user'
-  rescue StandardError
-    flash[:danger] = 'Unable to authenticate user pincode'
   end
 
   def event_description

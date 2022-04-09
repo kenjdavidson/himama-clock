@@ -25,6 +25,7 @@ There were some issues/growing pains while completing the project:
 
 The initial implementation of the punch clock is a standard/basic page containing a simple form allowing for as quick as entry as possible.   The current functionality includes (what I believe to be standard):
 
+- [x] Clock In and Clock Out buttons
 - [x] Quick and easy entry (no required login)
 - [x] Confirmation/Error display
 

@@ -16,16 +16,11 @@
             </div>
             <div class="d-flex my-2">
                 <div class="flex-grow-1 me-1">
-                    <input type="radio" class="btn-check" name="event_type" id="clockIn" value="clock_in" required>
-                    <label class="w-100 btn btn-secondary" for="clockIn">IN</label>                
+                    <button type="submit" name="event_type" value="clock_in" class="w-100 btn btn-primary">Clock In</button>            
                 </div>
                 <div class="flex-grow-1 ms-1">
-                    <input type="radio" class="btn-check" name="event_type" id="clockOut" value="clock_out">
-                    <label class="w-100 btn btn-secondary" for="clockOut">OUT</label>                
+                    <button type="submit" name="event_type" value="clock_out" class="w-100 btn btn-primary">Clock Out</button>
                 </div>
-            </div>
-            <div>
-                <button type="submit" class="w-100 btn btn-primary">Submit</button>
             </div>
         <% end %>
     </div>

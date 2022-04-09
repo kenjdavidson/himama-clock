@@ -11,7 +11,7 @@ class TimeEvent < ApplicationRecord
   validates :event_time, presence: true
   validates :event_type, presence: true, inclusion: { in: event_types.keys }
 
-  default_scope { order(event_time: :descc) }
+  default_scope { order(event_time: :desc) }
 
   private
 
