@@ -29,54 +29,46 @@ The initial implementation of the punch clock is a standard/basic page containin
 - [x] Quick and easy entry (no required login)
 - [x] Confirmation/Error display
 
-#### Future Enhancements
+#### Extra Day
 
-As mentioned above, a few enhancements that should be made 
+With an extra day I'd spend time cleaning up the look and feel of the form:
+
+- [ ] Cleanup look and feel
+- [ ] Clean up error handling
+
+#### Extra Month
+
+With an extra month, I'd work on making the punch clock more robust and available on different platforms:
 
 - [ ] Clean up the look and feel (although this is dependent on selected hardware)
 - [ ] Provide hardware specific implementations based on requirements
 - [ ] Provide scanning of ID cards (hardware dependant)
 - [ ] Provide different types of biometric login (hardware dependant)
 
-> The admin panel can be accessed manually `/admin` or via the Admin link that was added to make life a little easier
-
 ### Administration
 
+With regards to administration, I would have preferred to keep the pages completely separate.  As mentioned above, I don't even think the punch clock should have the admin panel available.  There should be a portal for user management and administration to be done.
 
+> With that said, there is an `/admin` link on the bottom of the punch clock, or users can go to the `/admin` url manually
 
-Adminsitrators have the ability to:
+- [x] Users can login at `/admin`
 
-- Login
-- View daily clock entries
-- Add/Modify clock entries
+#### Extra Day
 
-#### Additional Features
+The administration panel is lacking, due to the time constraint in the document, I didn't want to go (much more over this than I had already).  
+
+- [ ] Get the editing of Time Events working
+- [ ] Get the authorization working so that TEACHERS can only access their own profiles while ADMINS can access the full functionality
+
+#### Extra Month
 
 - [ ] Extend login functionality from basic password to OAuth to allow for different clients
 - [ ] Provide extended administrator features (TBD)
 - [ ] Provide reporting
 
-### User(s)
-
-Employees (which may be users) are required to punch in/out through the day.  Basic functionality for punching would be to require:
-
-- Enter their User Id
-- Enter their Pin Code 
-- Select In/Out 
-
-> Punching in should be as quick and painless for employees as possible
-
-#### Additional Features
+### Additional Features
 
 - [ ] Punch clock should provide multiple implementations.  A punch clock should be it's own implementation separated and available on different hardware: Android/IOS device, Hardware scanner (bar/QR), etc.
-
-### Event(s)
-
-Punch clock events provide a history of when/where the employee punched in.
-
-#### Additional Features
-
-- [ ] Employees may be able to punch in/out at different locations.   Validation would be required (ie. should you stop an Employee from punching in or out across locations?)
 
 ## Contribution
 
