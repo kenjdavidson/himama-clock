@@ -87,6 +87,5 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: punch_clock_production
-  username: punch_clock
-  password: <%= ENV["PUNCH_CLOCK_DATABASE_PASSWORD"] %>
