@@ -64,6 +64,8 @@ it would need to be extended with the appropriate association.
 
 With an extra day I'd spend time cleaning up the look and feel of the form:
 
+- [ ] Validation updates: 
+- [ ] Should not be able to clock in/out while not expecting (ie. if last was clock out, cannot clock out again)
 - [ ] Clean up the punch clock form to stop/disallow saving password info
 - [ ] Fix the issue with `DELETE /path` not working
 - [ ] Cleanup look and feel
